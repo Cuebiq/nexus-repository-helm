@@ -52,7 +52,7 @@ If everything checks out, the bundle for Helm should be available in the `target
 
 #### Build with Docker
 
-`docker build -t nexus-repository-helm:0.0.8 .`
+`docker build -t nexus-repository:3.15.2-01 .`
 
 #### Run as a Docker container
 
