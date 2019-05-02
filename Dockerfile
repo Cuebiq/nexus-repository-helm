@@ -72,8 +72,5 @@ EXPOSE 8081
 WORKDIR ${NEXUS_HOME}
 ENV INSTALL4J_ADD_VM_PARAMS="-Xms1200m -Xmx1200m"
 COPY --from=build /nexus-repository-helm/target/nexus-repository-helm-${HELM_VERSION}.jar ${SONATYPE_DIR}/nexus/deploy
-COPY ./external-conf/nexus-okta-auth.properties /opt/sonatype/nexus/etc/nexus-okta-auth.properties
-COPY ./external-plugin/nexus-okta-auth-plugin-0-SNAPSHOT.jar ${SONATYPE_DIR}/nexus/deploy
-
 
 CMD ["/sbin/runsvdir", "-P", "/etc/service"]
