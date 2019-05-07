@@ -1,7 +1,7 @@
 FROM maven:3-jdk-8-alpine AS build
 LABEL maintainer devops@cuebiq.com
-ARG NEXUS_VERSION=3.16.0
-ARG NEXUS_BUILD=01
+ARG NEXUS_VERSION=3.16.1
+ARG NEXUS_BUILD=02
 
 COPY . /nexus-repository-helm/
 RUN cd /nexus-repository-helm/; sed -i "s/3.15.2-01/${NEXUS_VERSION}-${NEXUS_BUILD}/g" pom.xml; \
@@ -11,7 +11,7 @@ RUN cd /nexus-repository-helm/; sed -i "s/3.15.2-01/${NEXUS_VERSION}-${NEXUS_BUI
 
 
 FROM quay.io/pires/docker-jre:8u191
-ENV NEXUS_VERSION 3.16.0-01
+ENV NEXUS_VERSION 3.16.1-02
 ENV NEXUS_DOWNLOAD_URL "https://download.sonatype.com/nexus/3"
 ENV NEXUS_TARBALL_URL "${NEXUS_DOWNLOAD_URL}/nexus-${NEXUS_VERSION}-unix.tar.gz"
 ENV NEXUS_TARBALL_ASC_URL "${NEXUS_DOWNLOAD_URL}/nexus-${NEXUS_VERSION}-unix.tar.gz.asc"
